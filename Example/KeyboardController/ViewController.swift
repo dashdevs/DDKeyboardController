@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KeyboardController
 
 class ViewController: UIViewController {
 
