@@ -37,12 +37,7 @@ final class KeyboardInfoViewController: UIViewController {
 
     @objc private func keyboardWillShow(_ notification: Notification) {
         guard let keyboardInfo = KeyboardInfo(notification: notification) else { return }
-        if #available(iOS 11.0, *) {
-            adjustableViewBottom.constant = keyboardInfo.frameHeightDelta - view.safeAreaInsets.bottom
-        } else {
-            adjustableViewBottom.constant = keyboardInfo.frameHeightDelta
-        }
-
+        adjustableViewBottom.constant = keyboardInfo.frameHeightDelta - view.safeAreaInsets.bottom
         keyboardInfo.animateView({ [weak self] in
             self?.view.layoutIfNeeded()
         })
