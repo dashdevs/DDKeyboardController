@@ -6,57 +6,65 @@
 //
 
 import Foundation
+import UIKit
 
 /// Struct representation of keyboard notification `userInfo`.
-public final class KeyboardInfo: NSObject {
+public struct KeyboardInfo {
 
     // MARK: - Properties
 
     private let userInfo: [AnyHashable: Any]
 
     // MARK: - Lifecycle
-    init?(notification: Notification) {
+    public init?(notification: Notification) {
         guard let userInfo = notification.userInfo else { return nil }
         self.userInfo = userInfo
     }
 
-    private override init() {
+    private init() {
         self.userInfo = [:]
-        super.init()
     }
 
     // MARK: - Public properties
 
     /// Identifies the starting frame rectangle of the keyboard in screen coordinates.
     /// The frame rectangle reflects the current orientation of the device.
-    var beginFrame: CGRect {
+    public var beginFrame: CGRect {
         return (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
     }
 
     /// Identifies the ending frame rectangle of the keyboard in screen coordinates.
     /// The frame rectangle reflects the current orientation of the device.
-    var endFrame: CGRect {
+    public var endFrame: CGRect {
         return (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
     }
 
     /// Identifies the distance by Y axis between starting and ending frames origins.
-    var frameHeightDelta: CGFloat {
+    public var frameHeightDelta: CGFloat {
         return beginFrame.origin.y - endFrame.origin.y
     }
 
+    /// Identifies whether the keyboard belongs to the current app.
+    ///
+    /// The value of this key is YES for the app that caused the keyboard to appear and NO for any other apps.
+    /// - note: With multitasking on iPad, all visible apps are notified when the keyboard appears and disappears.
+    public var keyboardIsLocal: Bool {
+        return (userInfo[UIKeyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue ?? true
+    }
+
     /// Identifies the duration of the animation in seconds.
-    var animationDuration: Double {
+    public var animationDuration: Double {
         return (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.25
     }
 
     /// Defines how the keyboard will be animated onto or off the screen.
-    var animationCurve: UIView.AnimationCurve {
+    public var animationCurve: UIView.AnimationCurve {
         guard let value = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int else { return .easeInOut }
         return UIView.AnimationCurve(rawValue: value) ?? .easeInOut
     }
 
     /// Representation of `animationCurve`.
-    var animationOptions: UIView.AnimationOptions {
+    public var animationOptions: UIView.AnimationOptions {
         return UIView.AnimationOptions(rawValue: UInt(animationCurve.rawValue << 16))
     }
 
@@ -67,7 +75,7 @@ public final class KeyboardInfo: NSObject {
     /// - Parameters:
     ///   - animations: View animations to be performed.
     ///   - completion: Called after the animation is finished.
-    func animateView(_ animations: @escaping (() -> Void), completion: ((_ finished: Bool) -> Void)? = nil) {
+    public func animateView(_ animations: @escaping (() -> Void), completion: ((_ finished: Bool) -> Void)? = nil) {
         UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        options: animationOptions,
@@ -83,3 +91,19 @@ public extension KeyboardInfo {
     }
 }
 
+// MARK: - CustomStringConvertible
+extension KeyboardInfo: CustomStringConvertible {
+    public var description: String {
+        let components = [
+            "KeyboardInfo:",
+            "beginFrame: \(beginFrame)",
+            "endFrame: \(endFrame)",
+            "frameHeightDelta: \(frameHeightDelta)",
+            "keyboardIsLocal: \(keyboardIsLocal)",
+            "animationDuration: \(animationDuration)",
+            "animationCurve: \(animationCurve)"
+
+        ]
+        return components.joined(separator: "\n")
+    }
+}
