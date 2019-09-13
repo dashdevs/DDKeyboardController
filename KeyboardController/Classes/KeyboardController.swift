@@ -13,6 +13,7 @@ import UIKit
 public final class KeyboardController {
 
     public typealias DeltaCalculationClosure = (KeyboardInfo) -> CGFloat
+    public typealias KeyboardNotificationCallback = (KeyboardInfo) -> Void
 
     /// Defines how the view and its subviews adjust to keyboard frame changes.
     ///
@@ -37,6 +38,13 @@ public final class KeyboardController {
     /// Content behavior whe keyboard frame changes.
     private let adjustmentType: ContentAdjustmentType
 
+    public var onKeyboardWillShow: KeyboardNotificationCallback?
+    public var onKeyboardDidShow: KeyboardNotificationCallback?
+    public var onKeyboardWillHide: KeyboardNotificationCallback?
+    public var onKeyboardDidHide: KeyboardNotificationCallback?
+    public var onKeyboardWillChangeFrame: KeyboardNotificationCallback?
+    public var onKeyboardDidChangeFrame: KeyboardNotificationCallback?
+
     // MARK: - Lifecycle
 
     /// Creates a ready-to-use instance with the given configuration.
@@ -55,12 +63,20 @@ public final class KeyboardController {
 
     public func addKeyboardNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: .keyboardWillShow, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardDidShow, name: .UIKeyboardDidShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: .keyboardWillHide, name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardDidHide, name: .UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardWillChangeFrame, name: .UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: .keyboardDidChangeFrame, name: .UIKeyboardDidChangeFrame, object: nil)
     }
 
     public func removeKeyboardNotificationObservers() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidChangeFrame, object: nil)
     }
 
     // MARK: - Private methods
@@ -92,6 +108,12 @@ public final class KeyboardController {
         keyboardInfo.animateView({ [weak self] in
             self?.view.layoutIfNeeded()
         })
+        onKeyboardWillShow?(keyboardInfo)
+    }
+
+    @objc fileprivate func keyboardDidShow(_ notification: Notification) {
+        guard let keyboardInfo = KeyboardInfo(notification: notification) else { return }
+        onKeyboardDidShow?(keyboardInfo)
     }
 
     @objc fileprivate func keyboardWillHide(_ notification: Notification) {
@@ -100,10 +122,30 @@ public final class KeyboardController {
         keyboardInfo.animateView({ [weak self] in
             self?.view.layoutIfNeeded()
         })
+        onKeyboardWillHide?(keyboardInfo)
+    }
+
+    @objc fileprivate func keyboardDidHide(_ notification: Notification) {
+        guard let keyboardInfo = KeyboardInfo(notification: notification) else { return }
+        onKeyboardDidHide?(keyboardInfo)
+    }
+
+    @objc fileprivate func keyboardWillChangeFrame(_ notification: Notification) {
+        guard let keyboardInfo = KeyboardInfo(notification: notification) else { return }
+        onKeyboardWillChangeFrame?(keyboardInfo)
+    }
+
+    @objc fileprivate func keyboardDidChangeFrame(_ notification: Notification) {
+        guard let keyboardInfo = KeyboardInfo(notification: notification) else { return }
+        onKeyboardDidChangeFrame?(keyboardInfo)
     }
 }
 
 fileprivate extension Selector {
     static let keyboardWillShow = #selector(KeyboardController.keyboardWillShow(_:))
+    static let keyboardDidShow = #selector(KeyboardController.keyboardDidShow(_:))
     static let keyboardWillHide = #selector(KeyboardController.keyboardWillHide(_:))
+    static let keyboardDidHide = #selector(KeyboardController.keyboardDidHide(_:))
+    static let keyboardWillChangeFrame = #selector(KeyboardController.keyboardWillChangeFrame(_:))
+    static let keyboardDidChangeFrame = #selector(KeyboardController.keyboardDidChangeFrame(_:))
 }
