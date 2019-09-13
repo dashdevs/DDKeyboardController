@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		78698026232B82AF0032EF69 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78698025232B82AF0032EF69 /* MainViewController.swift */; };
 		78698028232B83A90032EF69 /* KeyboardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78698027232B83A90032EF69 /* KeyboardInfoViewController.swift */; };
+		7869802E232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */; };
 		B72C0CD763BB4DF05C4AAC93 /* Pods_KeyboardController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C109B69AD8D86C22A84C820 /* Pods_KeyboardController_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		634287F25557C3349BE7A149 /* Pods-KeyboardController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyboardController_Tests.release.xcconfig"; path = "Target Support Files/Pods-KeyboardController_Tests/Pods-KeyboardController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		78698025232B82AF0032EF69 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		78698027232B83A90032EF69 /* KeyboardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardInfoViewController.swift; sourceTree = "<group>"; };
+		7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewHeightBehaviorViewController.swift; sourceTree = "<group>"; };
 		7C109B69AD8D86C22A84C820 /* Pods_KeyboardController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyboardController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD551F8303376762776920 /* Pods_KeyboardController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyboardController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F0FBBB56E67E057F5A7294 /* KeyboardController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KeyboardController.podspec; path = ../KeyboardController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -159,6 +161,7 @@
 			children = (
 				78698025232B82AF0032EF69 /* MainViewController.swift */,
 				78698027232B83A90032EF69 /* KeyboardInfoViewController.swift */,
+				7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			files = (
 				78698028232B83A90032EF69 /* KeyboardInfoViewController.swift in Sources */,
 				78698026232B82AF0032EF69 /* MainViewController.swift in Sources */,
+				7869802E232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

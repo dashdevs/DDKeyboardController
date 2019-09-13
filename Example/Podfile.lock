@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KeyboardController: c5e59227b5fb1b5594521d881a325a0252009328
+  KeyboardController: 849b577600b6e875f4657ca865db0b2bd5d39747
 
 PODFILE CHECKSUM: c4b02c4baf1a2de0b48a293925f3b6be2f2c8aa9
 

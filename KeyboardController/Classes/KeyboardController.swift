@@ -10,16 +10,16 @@ import UIKit
 
 /// Helper class that adjsusts the view by its height constraint
 /// when keyboard frame changes.
-final class KeyboardController {
+public final class KeyboardController {
 
-    typealias DeltaCalculationClosure = (KeyboardInfo) -> CGFloat
+    public typealias DeltaCalculationClosure = (KeyboardInfo) -> CGFloat
 
     /// Defines how the view and its subviews adjust to keyboard frame changes.
     ///
     /// - contentViewHeight: Overall content height is changed by keyboard height delta.
     /// - keepBottomViewInFocus: Overall content height is changed in order to always keep distance => `bottomOffset` between specified `view` content bottom.
     /// - custom: Non-typical content adjustment behavior, defined by `calculationClosure`.
-    enum ContentAdjustmentType {
+    public enum ContentAdjustmentType {
         case contentViewHeight
         case keepBottomViewInFocus(view: UIView, bottomOffset: CGFloat)
         case custom(calculationClosure: DeltaCalculationClosure)
@@ -45,7 +45,7 @@ final class KeyboardController {
     ///   - view: Parent view to be animated when keyboard frame changes.
     ///   - constraint: Height constraint of parent view.
     ///   - adjustmentType: Content behavior whe keyboard frame changes.
-    init(view: UIView, constraint: NSLayoutConstraint, adjustmentType: ContentAdjustmentType) {
+    public init(view: UIView, constraint: NSLayoutConstraint, adjustmentType: ContentAdjustmentType) {
         self.view = view
         self.contentDeltaHeightConstraint = constraint
         self.adjustmentType = adjustmentType
@@ -53,12 +53,12 @@ final class KeyboardController {
 
     // MARK: - Public methods
 
-    @objc func addKeyboardNotificationObservers() {
+    public func addKeyboardNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: .keyboardWillShow, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: .keyboardWillHide, name: .UIKeyboardWillHide, object: nil)
     }
 
-    @objc func removeKeyboardNotificationObservers() {
+    public func removeKeyboardNotificationObservers() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
