@@ -13,7 +13,8 @@ final class ContentViewHeightBehaviorViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var infoLabel: UILabel!
 
     // MARK: - Constraints
     
@@ -27,11 +28,6 @@ final class ContentViewHeightBehaviorViewController: UIViewController {
 
     // MARK: - UIViewController
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         keyboardController.addKeyboardNotificationObservers()
@@ -40,6 +36,14 @@ final class ContentViewHeightBehaviorViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         keyboardController.removeKeyboardNotificationObservers()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        infoLabel.text = """
+        content height: \(contentView.frame.height)
+        height constraint: \(contentHeight.constant)
+        """
     }
 }
 
