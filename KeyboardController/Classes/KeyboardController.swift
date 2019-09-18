@@ -31,6 +31,9 @@ public final class KeyboardController {
     /// Parent view to be animated when keyboard frame changes.
     private unowned let view: UIView
 
+    /// Scroll view that needs to adjust `contentInset` when keyboard frame changes.
+    private unowned var scrollView: UIScrollView?
+
     /// Height constraint of parent view.
     /// (Recommended to use `view.height == superview.height`)
     private unowned let contentDeltaHeightConstraint: NSLayoutConstraint
@@ -53,10 +56,12 @@ public final class KeyboardController {
     ///   - view: Parent view to be animated when keyboard frame changes.
     ///   - constraint: Height constraint of parent view.
     ///   - adjustmentType: Content behavior whe keyboard frame changes.
-    public init(view: UIView, constraint: NSLayoutConstraint, adjustmentType: ContentAdjustmentType) {
+    ///   - scrollView: Optional scroll view that needs to adjust `contentInset` when keyboard frame changes.
+    public init(view: UIView, constraint: NSLayoutConstraint, adjustmentType: ContentAdjustmentType, scrollView: UIScrollView? = nil) {
         self.view = view
         self.contentDeltaHeightConstraint = constraint
         self.adjustmentType = adjustmentType
+        self.scrollView = scrollView
     }
 
     // MARK: - Public methods
@@ -105,6 +110,7 @@ public final class KeyboardController {
                 return
         }
         contentDeltaHeightConstraint.constant = delta
+        scrollView?.contentInset.bottom = keyboardInfo.keyboardHeightInSafeArea(keyboardFrame: keyboardInfo.endFrame, inside: view)
         keyboardInfo.animateView({ [weak self] in
             self?.view.layoutIfNeeded()
         })
@@ -119,6 +125,7 @@ public final class KeyboardController {
     @objc fileprivate func keyboardWillHide(_ notification: Notification) {
         guard let keyboardInfo = KeyboardInfo(notification: notification) else { return }
         contentDeltaHeightConstraint.constant = 0.0
+        scrollView?.contentInset.bottom = 0.0
         keyboardInfo.animateView({ [weak self] in
             self?.view.layoutIfNeeded()
         })

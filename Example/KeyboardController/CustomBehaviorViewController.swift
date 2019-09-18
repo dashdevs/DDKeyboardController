@@ -27,7 +27,7 @@ final class CustomBehaviorViewController: UIViewController {
     // MARK: - Properties
 
     private lazy var keyboardController: KeyboardController = { [unowned self] in
-        return KeyboardController(view: self.view, constraint: self.contentHeight, adjustmentType: .custom(calculationClosure: self.keyboardDeltaCalculation))
+        return KeyboardController(view: self.view, constraint: self.contentHeight, adjustmentType: .custom(calculationClosure: self.keyboardDeltaCalculation), scrollView: scrollView)
         }()
 
     // MARK: - UIViewController
@@ -35,15 +35,6 @@ final class CustomBehaviorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         keyboardController.addKeyboardNotificationObservers()
-
-        keyboardController.onKeyboardWillShow = { [weak self] keyboardInfo in
-            guard let sSelf = self else { return }
-            sSelf.scrollView.contentInset.bottom = keyboardInfo.keyboardHeightInSafeArea(keyboardFrame: keyboardInfo.endFrame, inside: sSelf.view)
-        }
-
-        keyboardController.onKeyboardWillHide = { [weak self] _ in
-            self?.scrollView.contentInset.bottom = 0.0
-        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,7 +55,6 @@ final class CustomBehaviorViewController: UIViewController {
         }
         return delta - keyboardHeight
     }
-
 }
 
 // MARK: - UITextFieldDelegate
