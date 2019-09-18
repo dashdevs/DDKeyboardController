@@ -85,7 +85,7 @@ public final class KeyboardController {
         var delta: CGFloat
         switch adjustmentType {
         case .contentViewHeight:
-            delta = -(keyboardInfo.endFrame.height - view.safeAreaInsets.bottom)
+            delta = -keyboardInfo.keyboardHeightInSafeArea(keyboardFrame: keyboardInfo.endFrame, inside: view)
         case .keepBottomViewInFocus(let bottomView, let offset):
             let y = view.safeAreaInsets.top + bottomView.frame.maxY + offset
             let currentDelta = contentDeltaHeightConstraint.constant

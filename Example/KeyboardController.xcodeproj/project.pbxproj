@@ -17,6 +17,7 @@
 		78698028232B83A90032EF69 /* KeyboardInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78698027232B83A90032EF69 /* KeyboardInfoViewController.swift */; };
 		7869802E232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */; };
 		78698030232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7869802F232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift */; };
+		78698032232BD83B0032EF69 /* CustomBehaviorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78698031232BD83A0032EF69 /* CustomBehaviorViewController.swift */; };
 		B72C0CD763BB4DF05C4AAC93 /* Pods_KeyboardController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C109B69AD8D86C22A84C820 /* Pods_KeyboardController_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		78698027232B83A90032EF69 /* KeyboardInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardInfoViewController.swift; sourceTree = "<group>"; };
 		7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewHeightBehaviorViewController.swift; sourceTree = "<group>"; };
 		7869802F232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepBottomViewBehaviorViewController.swift; sourceTree = "<group>"; };
+		78698031232BD83A0032EF69 /* CustomBehaviorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBehaviorViewController.swift; sourceTree = "<group>"; };
 		7C109B69AD8D86C22A84C820 /* Pods_KeyboardController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyboardController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD551F8303376762776920 /* Pods_KeyboardController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyboardController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F0FBBB56E67E057F5A7294 /* KeyboardController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KeyboardController.podspec; path = ../KeyboardController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -165,6 +167,7 @@
 				78698027232B83A90032EF69 /* KeyboardInfoViewController.swift */,
 				7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */,
 				7869802F232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift */,
+				78698031232BD83A0032EF69 /* CustomBehaviorViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78698028232B83A90032EF69 /* KeyboardInfoViewController.swift in Sources */,
+				78698032232BD83B0032EF69 /* CustomBehaviorViewController.swift in Sources */,
 				78698026232B82AF0032EF69 /* MainViewController.swift in Sources */,
 				78698030232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift in Sources */,
 				7869802E232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift in Sources */,

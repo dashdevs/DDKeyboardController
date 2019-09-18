@@ -82,6 +82,17 @@ public struct KeyboardInfo {
                        animations: animations,
                        completion: completion
         )}
+
+    /// Calculates keyboard height form a given `keyboardFrame` considering
+    /// bottom Safe Area inset of the given `view`.
+    ///
+    /// - Parameters:
+    ///   - keyboardFrame: Keyboard frame in screen coordinates.
+    ///   - view: View below keyboard.
+    /// - Returns: Keyboard height adjusted to Safe Area.
+    public func keyboardHeightInSafeArea(keyboardFrame: CGRect, inside view: UIView) -> CGFloat {
+       return keyboardFrame.height - view.safeAreaInsets.bottom
+    }
 }
 
 // MARK: - Factory methods
