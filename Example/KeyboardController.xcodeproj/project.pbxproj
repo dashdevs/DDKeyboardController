@@ -18,7 +18,7 @@
 		7869802E232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */; };
 		78698030232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7869802F232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift */; };
 		78698032232BD83B0032EF69 /* CustomBehaviorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78698031232BD83A0032EF69 /* CustomBehaviorViewController.swift */; };
-		B72C0CD763BB4DF05C4AAC93 /* Pods_KeyboardController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C109B69AD8D86C22A84C820 /* Pods_KeyboardController_Example.framework */; };
+		E79F3CB5FDD893D221FBA711 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6136BC0098EBCF09CC08BA2 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +52,11 @@
 		7869802D232BA36E0032EF69 /* ContentViewHeightBehaviorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewHeightBehaviorViewController.swift; sourceTree = "<group>"; };
 		7869802F232BB4660032EF69 /* KeepBottomViewBehaviorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepBottomViewBehaviorViewController.swift; sourceTree = "<group>"; };
 		78698031232BD83A0032EF69 /* CustomBehaviorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBehaviorViewController.swift; sourceTree = "<group>"; };
-		7C109B69AD8D86C22A84C820 /* Pods_KeyboardController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyboardController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD551F8303376762776920 /* Pods_KeyboardController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyboardController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB69AE28F5AFE2EE4FF1CB1F /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		D6136BC0098EBCF09CC08BA2 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F0FBBB56E67E057F5A7294 /* KeyboardController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KeyboardController.podspec; path = ../KeyboardController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F66E6BBC43EBF93A63341D2B /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F86C72CB4F9F3A1B30191AD6 /* Pods-KeyboardController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyboardController_Example.release.xcconfig"; path = "Target Support Files/Pods-KeyboardController_Example/Pods-KeyboardController_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B72C0CD763BB4DF05C4AAC93 /* Pods_KeyboardController_Example.framework in Frameworks */,
+				E79F3CB5FDD893D221FBA711 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,8 @@
 				F86C72CB4F9F3A1B30191AD6 /* Pods-KeyboardController_Example.release.xcconfig */,
 				0B50CAE33F3BB0EACE04ED83 /* Pods-KeyboardController_Tests.debug.xcconfig */,
 				634287F25557C3349BE7A149 /* Pods-KeyboardController_Tests.release.xcconfig */,
+				F66E6BBC43EBF93A63341D2B /* Pods-Example.debug.xcconfig */,
+				AB69AE28F5AFE2EE4FF1CB1F /* Pods-Example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -175,8 +179,8 @@
 		DF0FD0387E5F300DAB60BE4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7C109B69AD8D86C22A84C820 /* Pods_KeyboardController_Example.framework */,
 				A5DD551F8303376762776920 /* Pods_KeyboardController_Tests.framework */,
+				D6136BC0098EBCF09CC08BA2 /* Pods_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -300,7 +304,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KeyboardController_Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -313,7 +317,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KeyboardController_Example/Pods-KeyboardController_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KeyboardController/KeyboardController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -322,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KeyboardController_Example/Pods-KeyboardController_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD99A13E04619360BFF6AFD8 /* [CP] Check Pods Manifest.lock */ = {
@@ -451,6 +455,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -496,13 +501,14 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08D6355D00D7DE93D366964B /* Pods-KeyboardController_Example.debug.xcconfig */;
+			baseConfigurationReference = F66E6BBC43EBF93A63341D2B /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 38NJJC3R8Y;
@@ -512,13 +518,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F86C72CB4F9F3A1B30191AD6 /* Pods-KeyboardController_Example.release.xcconfig */;
+			baseConfigurationReference = AB69AE28F5AFE2EE4FF1CB1F /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 38NJJC3R8Y;
@@ -528,7 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

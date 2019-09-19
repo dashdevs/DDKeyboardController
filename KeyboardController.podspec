@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KeyboardController'
-  s.version          = '0.1.0'
+  s.version          = '0.0.1'
   s.summary          = 'A collection of keyboard-related utilities for Cocoa Touch and UIKit.'
   s.homepage         = 'https://dashdevs.com'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
   s.source_files = 'KeyboardController/Classes/**/*'
+  s.swift_version = '5.0'
 end
