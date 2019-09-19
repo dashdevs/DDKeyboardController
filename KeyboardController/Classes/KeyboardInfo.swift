@@ -30,13 +30,13 @@ public struct KeyboardInfo {
     /// Identifies the starting frame rectangle of the keyboard in screen coordinates.
     /// The frame rectangle reflects the current orientation of the device.
     public var beginFrame: CGRect {
-        return (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
+        return (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
     }
 
     /// Identifies the ending frame rectangle of the keyboard in screen coordinates.
     /// The frame rectangle reflects the current orientation of the device.
     public var endFrame: CGRect {
-        return (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
+        return (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
     }
 
     /// Identifies the distance by Y axis between starting and ending frames origins.
@@ -49,17 +49,17 @@ public struct KeyboardInfo {
     /// The value of this key is YES for the app that caused the keyboard to appear and NO for any other apps.
     /// - note: With multitasking on iPad, all visible apps are notified when the keyboard appears and disappears.
     public var keyboardIsLocal: Bool {
-        return (userInfo[UIKeyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue ?? true
+        return (userInfo[UIResponder.keyboardIsLocalUserInfoKey] as? NSNumber)?.boolValue ?? true
     }
 
     /// Identifies the duration of the animation in seconds.
     public var animationDuration: Double {
-        return (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.25
+        return (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.25
     }
 
     /// Defines how the keyboard will be animated onto or off the screen.
     public var animationCurve: UIView.AnimationCurve {
-        guard let value = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int else { return .easeInOut }
+        guard let value = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? Int else { return .easeInOut }
         return UIView.AnimationCurve(rawValue: value) ?? .easeInOut
     }
 

@@ -1,7 +1,7 @@
 use_frameworks!
 platform :ios, '11.0'
 
-target 'KeyboardController_Example' do
+target 'Example' do
   pod 'KeyboardController', :path => '../'
 
   target 'KeyboardController_Tests' do
