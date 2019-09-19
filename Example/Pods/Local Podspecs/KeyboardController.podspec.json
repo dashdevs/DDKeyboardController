@@ -1,8 +1,7 @@
 {
   "name": "KeyboardController",
   "version": "0.1.0",
-  "summary": "A short description of KeyboardController.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "A collection of keyboard-related utilities for Cocoa Touch and UIKit.",
   "homepage": "https://dashdevs.com",
   "license": {
     "type": "MIT",
@@ -16,7 +15,7 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
   "source_files": "KeyboardController/Classes/**/*"
 }
