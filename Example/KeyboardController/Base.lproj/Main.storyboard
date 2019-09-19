@@ -133,7 +133,7 @@
                                 <rect key="frame" x="37.5" y="151" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="bCR-1t-it4" id="EQ4-WE-MrT"/>
                                 </connections>
@@ -156,11 +156,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position of this view adjusts to keyboard frame" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YfF-HO-t1I">
                                         <rect key="frame" x="16" y="13.5" width="343" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.81502995469999995" green="0.81502995469999995" blue="0.81502995469999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.070624379614292465" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.070624379609999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="YfF-HO-t1I" firstAttribute="centerY" secondItem="j6q-KI-Y46" secondAttribute="centerY" id="c8L-qB-2Ca"/>
                                     <constraint firstAttribute="trailing" secondItem="YfF-HO-t1I" secondAttribute="trailing" constant="16" id="caF-6U-XHo"/>
@@ -228,7 +228,7 @@
                                         <rect key="frame" x="37.5" y="87" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="fzY-rq-hcx" id="WRB-ol-56a"/>
                                         </connections>
@@ -264,11 +264,11 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom of the view" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSX-3k-SCS">
                                                 <rect key="frame" x="16" y="13.5" width="343" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.81502995469999995" green="0.81502995469999995" blue="0.81502995469999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.070624379609999996" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.0" green="0.070624379609999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="rSX-3k-SCS" secondAttribute="trailing" constant="16" id="1iZ-JA-HQQ"/>
                                             <constraint firstItem="rSX-3k-SCS" firstAttribute="centerY" secondItem="CtL-46-eSC" secondAttribute="centerY" id="2Xn-rU-0MK"/>
@@ -334,7 +334,7 @@
                                         <rect key="frame" x="37.5" y="87" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                         <connections>
                                             <outlet property="delegate" destination="SRi-Rq-Wgd" id="sqb-1i-iUd"/>
                                         </connections>
@@ -357,11 +357,11 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom of the view" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QSM-oi-cKw">
                                                 <rect key="frame" x="16" y="13.5" width="343" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.81502995469999995" green="0.81502995469999995" blue="0.81502995469999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.070624379609999996" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.0" green="0.070624379609999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="QSM-oi-cKw" firstAttribute="centerY" secondItem="DDk-Eq-GVi" secondAttribute="centerY" id="0DK-ns-d6y"/>
                                             <constraint firstItem="QSM-oi-cKw" firstAttribute="leading" secondItem="DDk-Eq-GVi" secondAttribute="leading" constant="16" id="F4s-No-MbQ"/>
@@ -465,7 +465,7 @@
                                                 <rect key="frame" x="37.5" y="87" width="300" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Lif-jd-nbO" id="v1c-nm-3hR"/>
                                                 </connections>
@@ -496,11 +496,11 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom of the view" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MPj-kw-fj2">
                                                         <rect key="frame" x="16" y="13.5" width="343" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.81502995466321249" green="0.81502995466321249" blue="0.81502995466321249" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.0" green="0.070624379609999996" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.0" green="0.070624379609999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="MPj-kw-fj2" firstAttribute="centerY" secondItem="I5i-i6-jfc" secondAttribute="centerY" id="45K-Xg-h5v"/>
                                                     <constraint firstItem="MPj-kw-fj2" firstAttribute="leading" secondItem="I5i-i6-jfc" secondAttribute="leading" constant="16" id="IoI-cd-1cG"/>

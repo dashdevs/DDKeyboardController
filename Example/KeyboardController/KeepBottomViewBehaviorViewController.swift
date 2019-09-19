@@ -25,7 +25,7 @@ final class KeepBottomViewBehaviorViewController: UIViewController {
     // MARK: - Properties
 
     private lazy var keyboardController: KeyboardController = { [unowned self] in
-        return KeyboardController(view: self.view, constraint: self.contentHeight, adjustmentType: .keepBottomViewInFocus(view: self.viewInFocus, bottomOffset: 20.0))
+        return KeyboardController(view: self.view, constraint: self.contentHeight, behaviorType: .keepBottomViewInFocus(view: self.viewInFocus, bottomOffset: 20.0))
         }()
 
     // MARK: - UIViewController

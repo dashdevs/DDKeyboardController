@@ -20,7 +20,7 @@ public final class KeyboardController {
     /// - contentViewHeight: Overall content height is changed by keyboard height delta.
     /// - keepBottomViewInFocus: Overall content height is changed in order to always keep distance => `bottomOffset` between specified `view` content bottom.
     /// - custom: Non-typical content adjustment behavior, defined by `calculationClosure`.
-    public enum ContentAdjustmentType {
+    public enum ContentBehaviorType {
         case contentViewHeight
         case keepBottomViewInFocus(view: UIView, bottomOffset: CGFloat)
         case custom(calculationClosure: DeltaCalculationClosure)
@@ -38,8 +38,8 @@ public final class KeyboardController {
     /// (Recommended to use `view.height == superview.height`)
     private unowned let contentDeltaHeightConstraint: NSLayoutConstraint
 
-    /// Content behavior whe keyboard frame changes.
-    private let adjustmentType: ContentAdjustmentType
+    /// Content behavior when keyboard frame changes.
+    private let behaviorType: ContentBehaviorType
 
     public var onKeyboardWillShow: KeyboardNotificationCallback?
     public var onKeyboardDidShow: KeyboardNotificationCallback?
@@ -55,12 +55,12 @@ public final class KeyboardController {
     /// - Parameters:
     ///   - view: Parent view to be animated when keyboard frame changes.
     ///   - constraint: Height constraint of parent view.
-    ///   - adjustmentType: Content behavior whe keyboard frame changes.
+    ///   - behaviorType: Content behavior whe keyboard frame changes.
     ///   - scrollView: Optional scroll view that needs to adjust `contentInset` when keyboard frame changes.
-    public init(view: UIView, constraint: NSLayoutConstraint, adjustmentType: ContentAdjustmentType, scrollView: UIScrollView? = nil) {
+    public init(view: UIView, constraint: NSLayoutConstraint, behaviorType: ContentBehaviorType, scrollView: UIScrollView? = nil) {
         self.view = view
         self.contentDeltaHeightConstraint = constraint
-        self.adjustmentType = adjustmentType
+        self.behaviorType = behaviorType
         self.scrollView = scrollView
     }
 
@@ -88,11 +88,18 @@ public final class KeyboardController {
 
     private func calculateDelta(for keyboardInfo: KeyboardInfo) -> CGFloat? {
         var delta: CGFloat
-        switch adjustmentType {
+        switch behaviorType {
         case .contentViewHeight:
-            delta = -keyboardInfo.keyboardHeightInSafeArea(keyboardFrame: keyboardInfo.endFrame, inside: view)
+            if #available(iOS 11.0, *) {
+                delta = -keyboardInfo.keyboardHeightInSafeArea(keyboardFrame: keyboardInfo.endFrame, inside: view)
+            } else {
+                delta = -keyboardInfo.endFrame.height
+            }
         case .keepBottomViewInFocus(let bottomView, let offset):
-            let y = view.safeAreaInsets.top + bottomView.frame.maxY + offset
+            var y = bottomView.frame.maxY + offset
+            if #available(iOS 11.0, *) {
+                y += view.safeAreaInsets.top
+            }
             let currentDelta = contentDeltaHeightConstraint.constant
             delta = currentDelta - (y - keyboardInfo.endFrame.origin.y)
             if delta > 0 { delta = 0 }
@@ -110,7 +117,14 @@ public final class KeyboardController {
                 return
         }
         contentDeltaHeightConstraint.constant = delta
-        scrollView?.contentInset.bottom = keyboardInfo.keyboardHeightInSafeArea(keyboardFrame: keyboardInfo.endFrame, inside: view)
+        let bottomInset: CGFloat
+        if #available(iOS 11.0, *) {
+            bottomInset = keyboardInfo.keyboardHeightInSafeArea(keyboardFrame: keyboardInfo.endFrame, inside: view)
+        } else {
+            bottomInset = keyboardInfo.endFrame.height
+        }
+
+        scrollView?.contentInset.bottom =  bottomInset
         keyboardInfo.animateView({ [weak self] in
             self?.view.layoutIfNeeded()
         })

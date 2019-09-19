@@ -90,6 +90,7 @@ public struct KeyboardInfo {
     ///   - keyboardFrame: Keyboard frame in screen coordinates.
     ///   - view: View below keyboard.
     /// - Returns: Keyboard height adjusted to Safe Area.
+    @available(iOS 11.0, *)
     public func keyboardHeightInSafeArea(keyboardFrame: CGRect, inside view: UIView) -> CGFloat {
        return keyboardFrame.height - view.safeAreaInsets.bottom
     }
